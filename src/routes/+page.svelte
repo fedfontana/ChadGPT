@@ -37,18 +37,21 @@
 	// 	},
 	// 	async addWords() {
 	// 		scrollBox();
+	
 	// 		$('body').find('.crsr').remove();
 	// 		let val = $('#text-area').val();
-	// 		console.log('val', val);
 	// 		if (val == '') return false;
+	
 	// 		$('#text-area').prop('disabled', true);
 	// 		$('#main-page').hide();
 	// 		let uText = $(getUserMsg());
 	// 		uText.find('#user-text').html(val);
 	// 		$('#chat-box').append(uText).show();
 	// 		$('#text-area').val('');
+
 	// 		scrollBox();
 	// 		await wait(500, 1000);
+
 	// 		let botMsgElem = $(getBotMsg());
 	// 		botMsgElem.find('#bot-text').html(`<span></span><span class="crsr"></span>`);
 	// 		botMsgElem
@@ -60,9 +63,8 @@
 	// 			scrollBox();
 	// 		});
 	// 		scrollBox();
-	// 		let words = this.textArray[randomNum(0, this.textArray.length - 1)];
 
-	// 		console.log(words);
+	// 		let words = this.textArray[randomNum(0, this.textArray.length - 1)];
 	// 		await wait(1000, 5000);
 	// 		scrollBox();
 	// 		botMsgElem.find('#gif-img').show();
@@ -71,7 +73,9 @@
 	// 			scrollBox();
 	// 			botMsgElem.find('#bot-text span').first().append(i);
 	// 		}
+
 	// 		await wait(200, 500);
+
 	// 		$('#text-area').prop('disabled', false).focus();
 
 	// 		$('body').find('.crsr').remove();
@@ -114,15 +118,15 @@
 			/>
 		</defs>
 	</svg> -->
-	<div class="overflow-hidden w-full h-full relative">
+	<div class="overflow-hidden min-h-screen w-full h-full relative">
 		<div class="flex h-full flex-1 flex-col md:pl-[260px]">
 			<MobileNavbar />
 
 			<main
-				class="relative h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1"
+				class="relative min-h-screen h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1"
 			>
 				<div class="flex-1 overflow-hidden">
-					<div class="scroll-to-bottom h-full dark:bg-gray-800">
+					<div class="scroll-to-bottom h-full min-h-screen dark:bg-gray-800">
 						<div class="react-scroll-to-bottom--css-fhazu-1n7m0yu">
 							<div id="main-page" style="display: block;">
 								<div class="flex flex-col items-center text-sm h-full dark:bg-gray-800">
