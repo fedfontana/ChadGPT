@@ -12,21 +12,23 @@
 			objDiv.scrollTop = objDiv.scrollHeight;
 		}
 	};
-	// const APP = {
-	// 	textArray: [
-	// 		`Meow. Meow meow meow. Meow, meow meow meow meow, meow. Meow meow, meow meow meow. Meow meow. Meow meow, meow. Meow meow, meow meow. Meow meow meow. Meow meow meow meow. Meow.`,
-	// 		`Meow. Meow meow. Meow - meow meow. Meow meow, meow. Meow meow - meow meow meow. Meow meow. Meow meow - meow. Meow meow meow. Meow meow meow meow. Meow.`,
-	// 		`Meow meow meow meow - meow meow! Meow meow - meow meow meow. Meow meow meow meow meow - meow meow? Meow meow meow meow meow meow - meow meow meow meow. Meow meow meow meow meow - meow meow meow meow meow meow.`,
-	// 		`Meow, meow meow meow, meow - meow meow! Meow meow, meow - meow meow meow. Meow meow meow meow, meow meow - meow meow? Meow meow meow meow, meow meow meow - meow meow meow meow. Meow meow meow meow, meow meow - meow meow meow meow, meow meow.`
-	// 	],
-	// 	sideBarPosition: {
-	// 		onHide: { left: '-20rem' },
-	// 		onShow: { left: '0rem' }
-	// 	},
+	const textArray = [
+		`Meow. Meow meow meow. Meow, meow meow meow meow, meow. Meow meow, meow meow meow. Meow meow. Meow meow, meow. Meow meow, meow meow. Meow meow meow. Meow meow meow meow. Meow.`,
+		`Meow. Meow meow. Meow - meow meow. Meow meow, meow. Meow meow - meow meow meow. Meow meow. Meow meow - meow. Meow meow meow. Meow meow meow meow. Meow.`,
+		`Meow meow meow meow - meow meow! Meow meow - meow meow meow. Meow meow meow meow meow - meow meow? Meow meow meow meow meow meow - meow meow meow meow. Meow meow meow meow meow - meow meow meow meow meow meow.`,
+		`Meow, meow meow meow, meow - meow meow! Meow meow, meow - meow meow meow. Meow meow meow meow, meow meow - meow meow? Meow meow meow meow, meow meow meow - meow meow meow meow. Meow meow meow meow, meow meow - meow meow meow meow, meow meow.`
+	];
+	const sideBarPosition = {
+		onHide: { left: '-20rem' },
+		onShow: { left: '0rem' }
+	};
+
 	// 	openMenu() {
 	// 		$('#sidebar-menu').show();
 	// 		$('#sidebar-menu .menubar').animate({ left: this.sideBarPosition.onShow.left });
 	// 	},
+	function openMenu() {}
+
 	// 	closeMenu() {
 	// 		$('#sidebar-menu .menubar')
 	// 			.animate({ left: this.sideBarPosition.onHide.left })
@@ -35,60 +37,72 @@
 	// 				$('#sidebar-menu').hide();
 	// 			});
 	// 	},
-	// 	async addWords() {
-	// 		scrollBox();
-	
-	// 		$('body').find('.crsr').remove();
-	// 		let val = $('#text-area').val();
-	// 		if (val == '') return false;
-	
-	// 		$('#text-area').prop('disabled', true);
-	// 		$('#main-page').hide();
-	// 		let uText = $(getUserMsg());
-	// 		uText.find('#user-text').html(val);
-	// 		$('#chat-box').append(uText).show();
-	// 		$('#text-area').val('');
+	function closeMenu() {}
 
-	// 		scrollBox();
-	// 		await wait(500, 1000);
+	let userInput = '';
 
-	// 		let botMsgElem = $(getBotMsg());
-	// 		botMsgElem.find('#bot-text').html(`<span></span><span class="crsr"></span>`);
-	// 		botMsgElem
-	// 			.find('#gif-img')
-	// 			.attr('src', `https://cataas.com/cat/gif?${performance.now()}`)
-	// 			.css('max-height', '270px');
-	// 		$('#chat-box').append(botMsgElem);
-	// 		botMsgElem.find('#gif-img').on('load', function () {
-	// 			scrollBox();
-	// 		});
-	// 		scrollBox();
+	async function addWords() {
+		scrollBox();
 
-	// 		let words = this.textArray[randomNum(0, this.textArray.length - 1)];
-	// 		await wait(1000, 5000);
-	// 		scrollBox();
-	// 		botMsgElem.find('#gif-img').show();
-	// 		for (let i of words || ''.split('')) {
-	// 			await wait(20, 80);
-	// 			scrollBox();
-	// 			botMsgElem.find('#bot-text span').first().append(i);
-	// 		}
+		// 		$('body').find('.crsr').remove();
 
-	// 		await wait(200, 500);
+		// 		let val = $('#text-area').val();
 
-	// 		$('#text-area').prop('disabled', false).focus();
+		if (userInput === '') return false;
 
-	// 		$('body').find('.crsr').remove();
-	// 	}
-	// };
+		// 		$('#text-area').prop('disabled', true);
 
-	// onMount(() => {
-	// 	let i = 1;
-	// 	setInterval(() => {
-	// 		i = Number(!i);
-	// 		$('body').find('.crsr').css('opacity', i);
-	// 	}, 400);
-	// });
+		// 		$('#main-page').hide();
+
+		// 		let uText = $(getUserMsg());
+		// 		uText.find('#user-text').html(val);
+		// 		$('#chat-box').append(uText).show();
+		// 		$('#text-area').val('');
+
+		scrollBox();
+		await wait(500, 1000);
+
+		// 		let botMsgElem = $(getBotMsg());
+		// 		botMsgElem.find('#bot-text').html(`<span></span><span class="crsr"></span>`);
+		// 		botMsgElem
+		// 			.find('#gif-img')
+		// 			.attr('src', `https://cataas.com/cat/gif?${performance.now()}`)
+		// 			.css('max-height', '270px');
+		// 		$('#chat-box').append(botMsgElem);
+		// 		botMsgElem.find('#gif-img').on('load', function () {
+		// 			scrollBox();
+		// 		});
+
+		scrollBox();
+
+		const words = textArray[randomNum(0, textArray.length - 1)];
+
+		await wait(1000, 5000);
+		scrollBox();
+
+		// 		botMsgElem.find('#gif-img').show();
+		// 		for (let i of words || ''.split('')) {
+		// 			await wait(20, 80);
+		// 			scrollBox();
+		// 			botMsgElem.find('#bot-text span').first().append(i);
+		// 		}
+
+		await wait(200, 500);
+
+		// 		$('#text-area').prop('disabled', false).focus();
+
+		// 		$('body').find('.crsr').remove();
+	}
+
+	let chatBoxElement: HTMLDivElement;
+
+	onMount(() => {
+		// let i = 1;
+		// setInterval(() => {
+		// 	i = Number(!i);
+		// 	$('body').find('.crsr').css('opacity', i);
+		// }, 400);
+	});
 </script>
 
 <svelte:head>
@@ -123,39 +137,45 @@
 			<MobileNavbar />
 
 			<main
-				class="relative min-h-screen h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1"
+				class="relative min-h-screen h-full w-full transition-width
+				flex flex-col overflow-hidden items-stretch flex-1"
 			>
 				<div class="flex-1 overflow-hidden">
 					<div class="scroll-to-bottom h-full min-h-screen dark:bg-gray-800">
-						<div class="react-scroll-to-bottom--css-fhazu-1n7m0yu">
-							<div id="main-page" style="display: block;">
-								<div class="flex flex-col items-center text-sm h-full dark:bg-gray-800">
-									<div
-										class="text-gray-800 w-full md:max-w-2xl lg:max-w-3xl md:h-full md:flex md:flex-col px-6 dark:text-gray-100"
+						<div id="main-page" style="display: block;">
+							<div class="flex flex-col items-center text-sm h-full dark:bg-gray-800">
+								<div
+									class="text-gray-800 w-full md:max-w-2xl
+									lg:max-w-3xl md:h-full md:flex
+									md:flex-col px-6 dark:text-gray-100"
+								>
+									<h1
+										class="text-4xl font-semibold text-center mt-6
+										sm:mt-[20vh] ml-auto mr-auto mb-10 sm:mb-16 flex gap-2 items-center justify-center"
 									>
-										<h1
-											class="text-4xl font-semibold text-center mt-6 sm:mt-[20vh] ml-auto mr-auto mb-10 sm:mb-16 flex gap-2 items-center justify-center"
-										>
-											CatGPT
-										</h1>
-										<Suggestions />
-									</div>
+										CatGPT
+									</h1>
+									<Suggestions />
 								</div>
 							</div>
-							<div id="chat-box" style="display: none;" />
 						</div>
+						<div id="chat-box" bind:this={chatBoxElement} style="display: none;" />
 						<button class="react-scroll-to-bottom--css-fhazu-1tj0vk3 scroll-convo" type="button" />
 					</div>
 				</div>
 				<div
-					class="absolute bottom-0 left-0 w-full border-t md:border-t-0 dark:border-white/20 md:border-transparent md:dark:border-transparent md:bg-vert-light-gradient bg-white dark:bg-gray-800 md:!bg-transparent dark:md:bg-vert-dark-gradient"
+					class="absolute bottom-0 left-0 w-full border-t md:border-t-0
+					dark:border-white/20 md:border-transparent md:dark:border-transparent
+					md:bg-vert-light-gradient bg-white dark:bg-gray-800
+					md:!bg-transparent dark:md:bg-vert-dark-gradient"
 				>
 					<MessageInput />
 					<div
-						class="px-3 pt-2 pb-3 text-center text-xs text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6"
+						class="px-3 pt-2 pb-3 text-center text-xs text-black/50
+						dark:text-white/50 md:px-4 md:pt-3 md:pb-6"
 					>
-						<a href="/" target="_blank" rel="noreferrer" class="underline">CatGPT Jan 9 Version</a>.
-						Free Playtime Preview. Our goal is to Spread Awareness and Raise Support. Donate Meow.
+						<a href="/" class="underline">CatGPT Jan 9 Version</a>. Free Playtime Preview. Our goal
+						is to Spread Awareness and Raise Support. Donate Meow.
 					</div>
 				</div>
 			</main>
